@@ -10,3 +10,13 @@
 2019-04-14 23:44:00 INFO  ApacheHttpClient.startGA(33) - GAService запущен.
 2019-04-14 23:44:00 INFO  AbstractRestApiClient.startService(70) - EventsService запущен.
 2019-04-14 23:46:02 INFO  InfoPanel.getQuestHtmlByVF(152) - Создана панель для квеста 2.JavaCore
+2019-04-14 23:51:08 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2019-04-14 23:51:10 INFO  ApacheHttpClient.getFilteredTasks(331) - responseCode = 200
+2019-04-14 23:51:23 INFO  ApacheHttpClient.getFilteredTasks(331) - responseCode = 200
+2019-04-14 23:51:23 INFO  ApacheHttpClient.getTaskTemplateInfo(348) - responseCode = 200
+2019-04-14 23:51:26 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-04-14 23:51:26 INFO  ApacheHttpClient.testConnection(205) - result = true
+2019-04-14 23:51:27 INFO  ApacheHttpClient.testConnection(190) - responseCode = 200
+2019-04-14 23:51:27 INFO  ApacheHttpClient.testConnection(205) - result = true
+2019-04-14 23:51:28 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2019-04-14 23:52:00 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
