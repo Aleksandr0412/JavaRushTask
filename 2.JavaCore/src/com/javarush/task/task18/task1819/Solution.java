@@ -13,7 +13,7 @@ public class Solution {
         String s1 = reader.readLine();
         String s2 = reader.readLine();
         reader.close();
-
+        ///////////
         FileInputStream fileInputStream1 = new FileInputStream(s1);
         FileInputStream fileInputStream2 = new FileInputStream(s2);
         byte[] buffer1 = new byte[fileInputStream1.available()];
