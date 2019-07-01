@@ -1,7 +1,22 @@
-﻿### Example user template template
-### Example user template
-
-# IntelliJ project files
-.idea/*
+﻿#############
+## Idea
+#############
+target/
+.idea/
+.idea
+.repository/
 *.iml
-out
+*.iws
+*.jrtc
+
+
+*.info
+*.properties
+*.jar
+
+
+/out/
+/JavaRushPlugin.properties
+/Instruction.png
+/out.log
+/out.log.*
