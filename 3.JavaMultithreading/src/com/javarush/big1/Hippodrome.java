@@ -1,5 +1,6 @@
 package com.javarush.big1;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,18 +16,18 @@ public class Hippodrome {
         this.horses = horses;
     }
 
-    public void move(){
-        for(Horse horse: horses){
+    public void move() {
+        for (Horse horse : horses) {
             horse.move();
         }
     }
 
-    public void print(){
-        for(Horse horse: horses){
+    public void print() {
+        for (Horse horse : horses) {
             horse.print();
         }
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             System.out.println();
         }
     }
@@ -39,17 +40,32 @@ public class Hippodrome {
         }
     }
 
+    public Horse getWinner() {
+        Horse winner = horses.get(0);
+        for (Horse horse : horses) {
+            if (horse.getDistance() > winner.getDistance()) {
+                winner = horse;
+            }
+        }
+        return winner;
+    }
+
+    public void printWinner() {
+        System.out.println("Winner is " + getWinner().getName() + "!");
+    }
+
     public static void main(String[] args) throws InterruptedException {
         Horse horse1 = new Horse("Willy", 3, 0);
         Horse horse2 = new Horse("Lucha", 3, 0);
         Horse horse3 = new Horse("Nusha", 3, 0);
 
-        List<Horse> list= new ArrayList<>();
+        List<Horse> list = new ArrayList<>();
         list.add(horse1);
         list.add(horse2);
         list.add(horse3);
 
         game = new Hippodrome(list);
         game.run();
+        game.printWinner();
     }
 }
