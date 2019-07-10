@@ -12,7 +12,7 @@ public class Solution {
         int secondTab = string.indexOf('\t', firstTab + 1);
         if (firstTab == -1 || secondTab == -1)
             throw new TooShortStringException();
-        
+
         return string.substring(firstTab + 1, secondTab);
 
     }
