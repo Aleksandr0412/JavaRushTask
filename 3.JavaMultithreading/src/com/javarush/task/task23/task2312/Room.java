@@ -1,16 +1,22 @@
 package com.javarush.task.task23.task2312;
 
 public class Room {
+    public static Room game;
     private int width;
     private int height;
     private Snake snake;
     private Mouse mouse;
-    public static Room game;
 
     public Room(int width, int height, Snake snake) {
         this.width = width;
         this.height = height;
         this.snake = snake;
+    }
+
+    public static void main(String[] args) {
+        Snake snake = new Snake(10, 10);
+        snake.setDirection(SnakeDirection.DOWN);
+        game = new Room(50, 50, snake);
     }
 
     public int getWidth() {
@@ -45,17 +51,19 @@ public class Room {
         this.mouse = mouse;
     }
 
-    public void run(){
+    public void run() {
 
     }
 
-    public void print(){
+    public void print() {
 
     }
 
-    public static void main(String[] args) {
-        Snake snake = new Snake(10,10);
-        snake.setDirection(SnakeDirection.DOWN);
-        game = new Room(50, 50 , snake);
+    public void createMouse() {
+        mouse = new Mouse((int) (Math.random() * getWidth()), (int) (Math.random() * getHeight()));
+    }
+
+    public void eatMouse() {
+        createMouse();
     }
 }
