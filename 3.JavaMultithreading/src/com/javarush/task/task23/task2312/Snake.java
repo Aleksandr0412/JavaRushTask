@@ -30,7 +30,7 @@ public class Snake {
         return getSections().get(0).getY();
     }
 
-    public void move() {
+    public void move(){
 
     }
 
