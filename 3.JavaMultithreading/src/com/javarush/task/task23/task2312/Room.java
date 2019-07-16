@@ -99,6 +99,28 @@ public class Room {
         //Рисуем все кусочки змеи
         //Рисуем мышь
         //Выводим все это на экран
+        int[][] roomArray = new int[width][height];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                roomArray[i][j] = 0;
+            }
+        }
+        roomArray[snake.getX()][snake.getY()] = 1;
+        for (SnakeSection sn : snake.getSections()) {
+            if (roomArray[sn.getX()][sn.getY()] != 1)
+                roomArray[sn.getX()][sn.getY()] = 2;
+        }
+        roomArray[mouse.getX()][mouse.getY()] = 3;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (roomArray[j][i] == 0) System.out.print(".");
+                if (roomArray[j][i] == 1) System.out.print("X");
+                if (roomArray[j][i] == 2) System.out.print("x");
+                if (roomArray[j][i] == 3) System.out.print("^");
+            }
+            System.out.println();
+        }
+
     }
 
     public void eatMouse() {
