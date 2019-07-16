@@ -30,7 +30,17 @@ public class Snake {
         return getSections().get(0).getY();
     }
 
-    public void move(){
+    public void move() {
+        if (this.isAlive()) {
+            if (this.direction == (SnakeDirection.UP)) move(0, -1);
+            if (this.direction == SnakeDirection.RIGHT) move(1, 0);
+            if (this.direction == SnakeDirection.DOWN) move(0, 1);
+            if (this.direction == SnakeDirection.LEFT) move(-1, 0);
+
+        }
+    }
+
+    public void move(int x, int y) {
 
     }
 
