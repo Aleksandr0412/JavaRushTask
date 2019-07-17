@@ -40,8 +40,20 @@ public class Snake {
         }
     }
 
-    public void move(int x, int y) {
+    public void move(int dx, int dy) {
+        SnakeSection newSection = new SnakeSection(sections.get(0).getX() + dx, sections.get(0).getY() + dy);
+        checkBorders(newSection);
+        checkBody(newSection);
+        if (isAlive()) {
+            if (Room.game.getMouse().getY() == newSection.getY() && Room.game.getMouse().getX() == newSection.getX()) {
+                Room.game.eatMouse();
+                sections.add(0, newSection);
+            } else {
+                sections.add(0, newSection);
+                sections.remove(sections.size() - 1);
 
+            }
+        }
     }
 
     public SnakeDirection getDirection() {
