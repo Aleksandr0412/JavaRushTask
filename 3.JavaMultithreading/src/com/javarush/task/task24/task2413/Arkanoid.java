@@ -24,7 +24,7 @@ public class Arkanoid {
     }
 
     public void move() {
-
+        
     }
 
     public Ball getBall() {
