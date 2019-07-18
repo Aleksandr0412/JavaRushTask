@@ -9,6 +9,7 @@ public class Arkanoid {
     private Ball ball;
     private Stand stand;
     private List<Brick> bricks;
+    private boolean isGameOver;
 
     public Arkanoid(int width, int height) {
         this.width = width;
@@ -17,6 +18,28 @@ public class Arkanoid {
 
     public static void main(String[] args) {
 
+    }
+
+    public void checkBricksBump() {
+        for (Brick brick : bricks) {
+            if (brick.isIntersec(ball)) {
+                double angle = Math.random() * 360;
+                ball.setDirection(angle);
+                bricks.remove(brick);
+                break;
+            }
+        }
+    }
+
+    public void checkStandBump() {
+        if (stand.isIntersec(ball)) {
+            double angle = 90 + 20 * (Math.random() - 0.5);
+            ball.setDirection(angle);
+        }
+    }
+
+    public void checkEndGame() {
+        if (ball.y > height) isGameOver = true;
     }
 
     public void run() {
