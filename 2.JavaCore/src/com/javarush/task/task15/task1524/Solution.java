@@ -6,9 +6,6 @@ package com.javarush.task.task15.task1524;
 
 public class Solution {
     static {
-        init();
-    }
-    static {
         System.out.println("Static block");
     }
 
@@ -20,7 +17,9 @@ public class Solution {
     public int i = 6;
 
     public String name = "First name";
-
+    static {
+        init();
+    }
 
     public Solution() {
         System.out.println("Solution constructor");
@@ -33,7 +32,6 @@ public class Solution {
 
     public static void main(String[] args) {
         System.out.println("public static void main");
-    
         Solution s = new Solution();
     }
 
