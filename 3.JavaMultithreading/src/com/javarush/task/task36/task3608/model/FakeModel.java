@@ -20,4 +20,9 @@ public class FakeModel implements Model {
         modelData.setUsers(list);
     }
 
+    @Override
+    public void loadDeletedUsers() {
+        throw new UnsupportedOperationException();
+    }
+
 }
