@@ -27,7 +27,7 @@ public class Solution {
                 count++;
                 wheels.add(Wheel.valueOf(s));
             }
-            if (count != 4) throw new Exception();
+            if (count !=     4) throw new Exception();
             //init wheels here
         }
 
