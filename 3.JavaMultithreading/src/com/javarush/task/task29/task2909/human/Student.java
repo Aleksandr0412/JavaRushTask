@@ -7,13 +7,14 @@ public class Student extends UniversityPerson {
     private Date beginningOfSession;
     private Date endOfSession;
     private int course;
+
     public int getCourse() {
         return course;
     }
 
 
     public Student(String name, int age, double averageGrade) {
-        super(name,age);
+        super(name, age);
         this.averageGrade = averageGrade;
     }
 
@@ -25,11 +26,11 @@ public class Student extends UniversityPerson {
     public void learn() {
     }
 
-
-
-    public void printData() {
-        System.out.println("Студент: " + name);
+    @Override
+    public String getPosition() {
+        return "Студент";
     }
+
 
     public void incAverageGradeBy01() {
         averageGrade += 0.1;
