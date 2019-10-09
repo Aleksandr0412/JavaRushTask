@@ -1,8 +1,8 @@
 package com.javarush.task.task29.task2909.human;
 
 public class UniversityPerson extends Human {
-    protected String name;
-    protected int age;
+//    protected String name;
+//    protected int age;
     private University university;
 
     public UniversityPerson(String name, int age) {
