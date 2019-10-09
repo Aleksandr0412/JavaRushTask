@@ -34,7 +34,7 @@ public class Student extends UniversityPerson {
     }
 
     public void incAverageGrade(double delta) {
-        averageGrade += delta;
+        this.setAverageGrade(getAverageGrade() + delta);
     }
 
 
