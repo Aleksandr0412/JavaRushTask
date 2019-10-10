@@ -12,9 +12,7 @@ public class Server {
     private static Map<String, Connection> connectionMap = new ConcurrentHashMap<>();
 
 
-    /**
-     * MAIN
-     **/
+    /** MAIN **/
     public static void main(String[] args) throws IOException {
 
         ConsoleHelper.writeMessage("Введите порт сервера: ");
@@ -36,9 +34,7 @@ public class Server {
     }
 
 
-    /**
-     * отправка сообщения для всех
-     **/
+    /** отправка сообщения для всех **/
     public static void sendBroadcastMessage(Message message) {
 
         try {
@@ -47,7 +43,7 @@ public class Server {
                 connection.send(message);
             }
 
-        } catch (Exception e) {
+        } catch (Exception e){
             e.printStackTrace();
             ConsoleHelper.writeMessage("Сообщение не отправлено");
         }
@@ -55,9 +51,7 @@ public class Server {
     }
 
 
-    /**
-     * обработчик Handler, в котором будет происходить обмен сообщениями с клиентом
-     **/
+    /**обработчик Handler, в котором будет происходить обмен сообщениями с клиентом **/
     private static class Handler extends Thread {
 
         private Socket socket;
@@ -95,7 +89,7 @@ public class Server {
             }
 
             //После того как все исключения обработаны, удаляем запись из connectionMap
-            if (clientName != null) connectionMap.remove(clientName);
+             if(clientName!=null ) connectionMap.remove(clientName);
             //и отправлялем сообщение остальным пользователям
             sendBroadcastMessage(new Message(MessageType.USER_REMOVED, clientName));
 
@@ -103,9 +97,7 @@ public class Server {
 
         }
 
-        /**
-         * Handshake
-         **/
+        /** Handshake **/
         private String serverHandshake(Connection connection) throws IOException, ClassNotFoundException {
 
             while (true) {
@@ -137,9 +129,7 @@ public class Server {
         }
 
 
-        /**
-         * Отправка списка всех пользователей
-         **/
+        /** Отправка списка всех пользователей **/
         private void notifyUsers(Connection connection, String userName) throws IOException {
 
             for (String key : connectionMap.keySet()) {
@@ -152,9 +142,7 @@ public class Server {
         }
 
 
-        /**
-         * Главный цикл обработки сообщений сервером
-         **/
+        /** Главный цикл обработки сообщений сервером **/
         private void serverMainLoop(Connection connection, String userName) throws IOException, ClassNotFoundException {
 
             while (true) {
