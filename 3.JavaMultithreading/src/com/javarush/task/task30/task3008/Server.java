@@ -45,6 +45,15 @@ public class Server {
             this.socket = socket;
         }
 
+        private void serverMainLoop(Connection connection, String userName) throws IOException, ClassNotFoundException {
+            while (true) {
+                Message m = connection.receive();
+                if (m.getType() == MessageType.TEXT) {
+                    sendBroadcastMessage(new Message(MessageType.TEXT, userName + ": " + m.getData()));
+                } else ConsoleHelper.writeMessage("Ошибка");
+            }
+        }
+
         private void notifyUsers(Connection connection, String userName) {
             connectionMap.forEach((name, connection1) -> {
                 Message message = new Message(MessageType.USER_ADDED, name);
