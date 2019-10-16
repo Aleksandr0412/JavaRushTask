@@ -9,16 +9,14 @@ public class Solution {
         SimpleObject<String> stringObject = new StringObject<Object>();
     }
 
-    class StringObject<String> implements SimpleObject<String> {
-
-        @Override
-        public SimpleObject getInstance() {
-            return null;
-        }
-    }
-
     interface SimpleObject<T> {
         SimpleObject<T> getInstance();
     }
 
+    private static class StringObject<T> implements SimpleObject<String> {
+        @Override
+        public SimpleObject<String> getInstance() {
+            return null;
+        }
+    }
 }

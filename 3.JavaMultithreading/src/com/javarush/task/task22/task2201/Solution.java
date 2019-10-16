@@ -1,22 +1,20 @@
 package com.javarush.task.task22.task2201;
 
-/* 
+/*
 Строки нитей или строковые нити? Вот в чем вопрос
 */
 public class Solution {
-    public static void main(String[] args) {
-        new Solution();
-    }
-
     public static final String FIRST_THREAD_NAME = "1#";
     public static final String SECOND_THREAD_NAME = "2#";
-
     private Thread thread1;
     private Thread thread2;
     private Thread thread3;
-
     public Solution() {
         initThreads();
+    }
+
+    public static void main(String[] args) {
+        new Solution();
     }
 
     protected void initThreads() {
@@ -32,6 +30,17 @@ public class Solution {
     }
 
     public synchronized String getPartOfString(String string, String threadName) {
-        return null;
+        int beginIndex = string.indexOf("\t");
+        int lastIndex = string.lastIndexOf("\t");
+        if (beginIndex < 0 || lastIndex < 0 || beginIndex == lastIndex) {
+            if (threadName.equals("FIRST_THREAD_NAME")) {
+                throw new StringForFirstThreadTooShortException();
+            }
+            if (threadName.equals("SECOND_THREAD_NAME")) {
+                throw new StringForSecondThreadTooShortException()
+            }
+            throw new RuntimeException();
+        }
+        return string.substring(beginIndex, lastIndex);
     }
 }
